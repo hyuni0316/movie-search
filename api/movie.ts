@@ -1,8 +1,11 @@
+// vercel 서비스에서 제공하는 서버리스 함수. 백엔드 코드
+
 import fetch from 'node-fetch'
+import { VercelRequest, VercelResponse } from '@vercel/node'
 
 const { APIKEY } = process.env
 
-export default async function handler(request, response) {
+export default async function handler(request: VercelRequest, response: VercelResponse) {
   const { title, page, id } = JSON.parse(request.body)
   const url = id
     ? `https://omdbapi.com?apikey=${APIKEY}&i=${id}&plot=full`
