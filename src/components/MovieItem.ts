@@ -1,6 +1,13 @@
 import { Component } from '../core/heropy'
+import { SimpleMovie } from '../store/movie' 
+
+interface Props {
+  [key: string]: unknown
+  movie: SimpleMovie
+}
 
 export default class MovieItem extends Component {
+  public props: Props;
   constructor(props) {
     super({
       props,
